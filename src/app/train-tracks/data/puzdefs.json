@@ -1,0 +1,8 @@
+{
+  "problemNumber": 55,
+  "numberOfRows": 8,
+  "numberOfColumns": 8,
+  "xAxisCounts": [2, 2],
+  "yAxisCounts": [3, 3],
+  "startingTracks": [{ "type": 0, "orientation": "v", "position": [5, 6] }]
+}
