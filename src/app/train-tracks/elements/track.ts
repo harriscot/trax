@@ -1,11 +1,11 @@
 export class Track {
-  position: Position;
+  position!: Position;
   shape: TrackShape;
   orientation: TrackOrientation;
   coordinates: [
     row: number,
     column: number
-  ]
+  ];
 
   constructor(
     position: Position,

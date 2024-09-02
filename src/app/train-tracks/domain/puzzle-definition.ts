@@ -7,13 +7,15 @@ export class PuzzleDefinition {
   xAxisCounts: number[];
   yAxisCounts: number[];
   startingTracks: Track[];
+  solution: Track[];
 
   constructor (problemNumber: number,
     numberOfRows: number,
     numberOfColumns: number,
     xAxisCounts: number[],
     yAxisCounts: number[],
-    startingTracks: Track[]
+    startingTracks: Track[],
+    solution: Track[]
   ) {
     this.problemNumber = problemNumber;
     this.numberOfRows = numberOfRows;
@@ -21,5 +23,6 @@ export class PuzzleDefinition {
     this.xAxisCounts = xAxisCounts;
     this.yAxisCounts = yAxisCounts;
     this.startingTracks = startingTracks;
+    this.solution = solution;
   }
 }

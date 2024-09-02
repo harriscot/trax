@@ -46,8 +46,15 @@ Github. harriscot
 Resources
 ---------
 
+Done
+----
+Service returns list of puzzles and details of a selected puzzle. 
+List of puzzles stored in JSON.
 
-
+TODO
+----
+Store puzzle solutions in JSON. Started.
+Load new game: format board and display starting tracks on it.
 
 # Trax
 

@@ -17,6 +17,9 @@ export class TraxPuzzleService {
     for(const puzzle of this.puzzleDefinitions.puzzles){
       if(puzzle.problemNumber == puzzleNumber){
         console.log("found puzzle number: " + puzzleNumber);
+        for(const track of puzzle.solution){
+          console.log("solution track: " + track.coordinates);
+        }
         return puzzle;
       } else {
         return undefined;

@@ -19,7 +19,7 @@ export class TrainTracksComponent {
 
   private traxService = inject(TraxPuzzleService);
   private puzzleDefinitions: PuzzleDefinitions = this.traxService.getPuzzleDefinitions();
-  private puzzleDefinition: PuzzleDefinition | undefined = this.traxService.getPuzzleDefinition(505);
+  private puzzleDefinition: PuzzleDefinition | undefined = this.traxService.getPuzzleDefinition(1);
   private puzzleNumbers: number[] = this.traxService.getPuzzleNumbers();
 
 }
