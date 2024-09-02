@@ -1,8 +1,45 @@
 {
-  "problemNumber": 55,
-  "numberOfRows": 8,
-  "numberOfColumns": 8,
-  "xAxisCounts": [2, 2],
-  "yAxisCounts": [3, 3],
-  "startingTracks": [{ "type": 0, "orientation": "v", "position": [5, 6] }]
+  "puzzles": [
+    {
+      "problemNumber": 505,
+      "numberOfRows": 8,
+      "numberOfColumns": 8,
+      "xAxisCounts": [2, 2, 5, 5, 6, 8, 4, 3],
+      "yAxisCounts": [3, 3, 4, 8, 7, 5, 6, 4],
+      "startingTracks": [
+        {
+          "position": "end",
+          "shape": "straight",
+          "orientation": "V",
+          "coordinates": [5, 6]
+        },
+        {
+          "position": "start",
+          "shape": "curved",
+          "orientation": "TR",
+          "coordinates": [5, 6]
+        }
+      ]
+    }, {
+      "problemNumber": 595,
+      "numberOfRows": 8,
+      "numberOfColumns": 8,
+      "xAxisCounts": [2, 2, 5, 5, 6, 8, 4, 3],
+      "yAxisCounts": [3, 3, 4, 8, 7, 5, 6, 4],
+      "startingTracks": [
+        {
+          "position": "intermediate",
+          "shape": "straight",
+          "orientation": "V",
+          "coordinates": [5, 6]
+        },
+        {
+          "position": "intermediate",
+          "shape": "curved",
+          "orientation": "TR",
+          "coordinates": [5, 6]
+        }
+      ]
+    }
+  ]
 }

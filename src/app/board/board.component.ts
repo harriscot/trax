@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Board } from './board';
 import { Row } from './row';
-import { Cell } from './Cell';
+import { Cell } from './cell';
 import { TableModule } from 'primeng/table';
 
 @Component({

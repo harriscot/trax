@@ -6,8 +6,7 @@ import { NgFor } from '@angular/common';
 import { BoardComponent } from "../board/board.component";
 import { TraxPuzzleService } from './trax-puzzle.service';
 import { PuzzleDefinition } from './domain/puzzle-definition';
-// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { PuzzleDefinitions } from './domain/puzzle-definitions';
 
 @Component({
   selector: 'app-train-tracks',
@@ -17,10 +16,10 @@ import { PuzzleDefinition } from './domain/puzzle-definition';
   styleUrl: './train-tracks.component.scss'
 })
 export class TrainTracksComponent {
-  tracksInColumns: String[] = ['2','2','4','7','6','5','7','3'];
-  tracksInRows: String[] = ['5','3','4','2','7','5','5','5'];
 
-  private traxPuzzleService = inject(TraxPuzzleService);
-  puzzleDefinition: PuzzleDefinition = this.traxPuzzleService.getPuzzleDefinitions()[0];
+  private traxService = inject(TraxPuzzleService);
+  private puzzleDefinitions: PuzzleDefinitions = this.traxService.getPuzzleDefinitions();
+  private puzzleDefinition: PuzzleDefinition | undefined = this.traxService.getPuzzleDefinition(505);
+  private puzzleNumbers: number[] = this.traxService.getPuzzleNumbers();
 
 }

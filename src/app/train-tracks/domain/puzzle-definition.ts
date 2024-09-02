@@ -1,4 +1,4 @@
-import { Track } from "../../board/track";
+import { Track } from "../elements/track";
 
 export class PuzzleDefinition {
   problemNumber: number;

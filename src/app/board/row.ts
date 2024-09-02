@@ -1,4 +1,4 @@
-import { Cell } from "./Cell";
+import { Cell } from "./cell";
 
 export class Row {
   index: number;
