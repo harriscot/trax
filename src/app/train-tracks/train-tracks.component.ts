@@ -1,17 +1,16 @@
 import { Component, inject } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
 import { NgFor } from '@angular/common';
 import { BoardComponent } from "../board/board.component";
 import { TraxPuzzleService } from './trax-puzzle.service';
 import { PuzzleDefinition } from './domain/puzzle-definition';
 import { PuzzleDefinitions } from './domain/puzzle-definitions';
+import { IonButton, IonTabs, IonGrid } from "@ionic/angular/standalone";
+import { addIcons } from "ionicons";
 
 @Component({
   selector: 'app-train-tracks',
   standalone: true,
-  imports: [ButtonModule, PanelModule, TableModule, NgFor, BoardComponent],
+  imports: [IonGrid, IonTabs, IonButton, NgFor, BoardComponent],
   templateUrl: './train-tracks.component.html',
   styleUrl: './train-tracks.component.scss'
 })

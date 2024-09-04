@@ -22,6 +22,17 @@
       </tr>
     }
   </tbody>
+
 </table>
+
+<ion-grid fixed="true">
+  @for (row of board.rows; track row.index){
+  <ion-row>
+    @for (cell of row.cells; track cell.column){
+      <ion-col>{{cell.column}}</ion-col>
+    }
+  </ion-row>
+  }
+</ion-grid>
 
 

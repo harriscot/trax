@@ -2,12 +2,15 @@ import { Component } from '@angular/core';
 import { Board } from './board';
 import { Row } from './row';
 import { Cell } from './cell';
-import { TableModule } from 'primeng/table';
+import { IonGrid, IonRow, IonCol } from "@ionic/angular/standalone";
+import { addIcons } from "ionicons";
+
+// import { TableModule } from 'primeng/table';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [TableModule],
+  imports: [IonCol, IonRow, IonGrid, ],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
