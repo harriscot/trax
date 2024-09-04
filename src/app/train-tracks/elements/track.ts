@@ -1,5 +1,6 @@
-export class Track {
-  position!: Position;
+export interface Track {
+
+  position: Position;
   shape: TrackShape;
   orientation: TrackOrientation;
   coordinates: [
@@ -7,16 +8,6 @@ export class Track {
     column: number
   ];
 
-  constructor(
-    position: Position,
-    shape: TrackShape,
-    orientation: TrackOrientation,
-    coordinates: [row: number, column: number]) {
-      this.position = position;
-      this.shape = shape;
-      this.orientation = orientation;
-      this.coordinates = coordinates;
-  }
 }
 
 export enum TrackShape {

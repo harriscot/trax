@@ -1,10 +1,6 @@
-export class Cell {
+export interface Cell {
   row: number;
   column: number;
-  type!: string;
+  type: string;
 
-  constructor(row: number, column: number){
-    this.row = row;
-    this.column = column;
-  }
 }

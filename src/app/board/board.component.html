@@ -17,7 +17,7 @@
     @for (row of board.rows; track row.index){
       <tr>
         @for (cell of row.cells; track cell.column){
-          <td>{{cell.column}}</td>
+          <td id="{{cell.row}}{{cell.column}}"></td>
         }
       </tr>
     }

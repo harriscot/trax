@@ -1,0 +1,26 @@
+tr{
+  height: 1.5cm;
+  border: 1px solid green;
+}
+td{
+  width: 1.5cm;
+  border: 1px solid green;
+  text-align: center;
+  vertical-align: middle;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid green;
+}
+img {
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+
+  max-width: 30%;
+  max-height: 30%;
+  // height: auto;
+
+  // object-fit: cover;
+  // object-position: center;
+}
