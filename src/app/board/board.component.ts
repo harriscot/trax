@@ -1,19 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Board } from './board';
 import { Row } from './row';
 import { Cell } from './cell';
 import { TableModule } from 'primeng/table';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [TableModule],
+  imports: [TableModule, CommonModule],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
 export class BoardComponent {
 
   BOARD_SIZE: number = 8;
+
+  @Input() xAxisCounts: number[] | undefined;
+  @Input()
+  yAxisCounts!: number[];
 
   board: Board = { rows: this.buildBoard() }
 

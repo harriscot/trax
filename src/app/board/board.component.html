@@ -1,16 +1,7 @@
-<p>board works!</p>
-
 <table>
-  <thead>
-<tr>
-    <th>a</th>
-    <th>b</th>
-    <th>c</th>
-    <th>d</th>
-    <th>e</th>
-    <th>f</th>
-    <th>g</th>
-    <th>h</th>
+  <thead id="head01">
+<tr id="headRow01">
+  <th *ngFor="let count of xAxisCounts">{{count}}</th>
 </tr>
   </thead>
   <tbody>
@@ -19,9 +10,11 @@
         @for (cell of row.cells; track cell.column){
           <td id="{{cell.row}}{{cell.column}}"></td>
         }
+        <td class="noborder">{{yAxisCounts[row.index]}}</td>
       </tr>
     }
   </tbody>
 </table>
+
 
 

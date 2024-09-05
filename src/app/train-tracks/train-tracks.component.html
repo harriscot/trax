@@ -1,12 +1,9 @@
-<p>train-tracks works!</p>
-
-<!-- <p-button label="do really amazing stuff"></p-button> -->
 
 <button pButton
 type="button"
 class="p-button-raised p-button-rounded"
 label="do stuff"
-(click)="insertImage()"></button>
+(click)="insertImage('44')"></button>
 
 <div></div>
 
@@ -27,9 +24,5 @@ items:
   Table - a list of rows. -->
 
 
-<div><img src='/img/track_bottom_left.png' /></div>
+<app-board [xAxisCounts]="xAxisValues" [yAxisCounts]="yAxisValues"></app-board>
 
-hiya
-
-<!-- <h3>puzzle {{puzzleDefinition.problemNumber}} definition</h3> -->
-<app-board></app-board>
