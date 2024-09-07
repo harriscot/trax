@@ -1,13 +1,24 @@
+<button
+  pButton
+  type="button"
+  class="p-button-raised p-button-rounded"
+  label="do stuff"
+  (click)="insertImage('44')"
+></button>
 
-<button pButton
-type="button"
-class="p-button-raised p-button-rounded"
-label="do stuff"
-(click)="insertImage('44')"></button>
-
-<div></div>
-
-
+<div>
+  <label for="puzzles" id="puzzleSelector">Select a puzzle</label>
+  <select
+    #selectedPuzzle
+    (change)="onSelect(selectedPuzzle.value)"
+    id="puzzles"
+  >
+    <option default>Choose a puzzle</option>
+    @for(puzzleNumber of puzzleNumbers; track $index){
+    <option value="{{ puzzleNumber }}">{{ puzzleNumber }}</option>
+    }
+  </select>
+</div>
 
 <!-- Display one row of the table. A row consists of a list of cells. Cells can contain graphics indicating one of the following
 items:
@@ -23,6 +34,40 @@ items:
   Row - row class that contains a list of cells. Each cell is in a column.
   Table - a list of rows. -->
 
-
-<app-board [xAxisCounts]="xAxisValues" [yAxisCounts]="yAxisValues"></app-board>
-
+<div class="row">
+  <div class="wide">
+    <app-board
+      [xAxisCounts]="xAxisValues"
+      [yAxisCounts]="yAxisValues"
+    ></app-board>
+  </div>
+  <div class="narrow">
+    <table>
+      <tr>
+        <td><img src="/img/track_vertical.png" width="60" height="60" /></td>
+        <td>
+          <img src="/img/track_horizontal.png" width="60" height="60" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/img/track_bottom_right.png" width="60" height="60" />
+        </td>
+        <td>
+          <img src="/img/track_bottom_left.png" width="60" height="60" />
+        </td>
+      </tr>
+      <tr>
+        <td><img src="/img/track_top_right.png" width="60" height="60" /></td>
+        <td><img src="/img/track_top_left.png" width="60" height="60" /></td>
+      </tr>
+      <tr>
+        <td><i class="pi pi-question" style="font-size: 4 rem"></i></td>
+        <td><i class="pi pi-check" style="font-size: 4 rem"></i></td>
+      </tr>
+      <tr>
+        <td><i class="pi pi-times" style="font-size: 4 rem"></i></td>
+      </tr>
+    </table>
+  </div>
+</div>

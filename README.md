@@ -55,6 +55,12 @@ TODO
 ----
 Store puzzle solutions in JSON. Started.
 Load new game: format board and display starting tracks on it.
+dropdown to select game
+place starting tracks on board
+build pallet of icons
+drag and drop / click and select onto board cell.
+Button to display solution
+Display solution on board
 
 # Trax
 

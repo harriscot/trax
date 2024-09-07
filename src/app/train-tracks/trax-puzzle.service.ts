@@ -14,15 +14,13 @@ export class TraxPuzzleService {
   }
 
   getPuzzleDefinition(puzzleNumber: number): PuzzleDefinition | undefined {
-    for(const puzzle of this.puzzleDefinitions.puzzles){
-      if(puzzle.problemNumber == puzzleNumber){
+    for(let puzzle of this.puzzleDefinitions.puzzles){
+      if(puzzle.problemNumber === puzzleNumber){
         console.log("found puzzle number: " + puzzleNumber);
-        for(const track of puzzle.solution){
+        for(let track of puzzle.solution){
           console.log("solution track: " + track.coordinates);
         }
         return puzzle;
-      } else {
-        return undefined;
       }
     }
     return undefined;

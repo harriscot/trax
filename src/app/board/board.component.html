@@ -1,20 +1,19 @@
 <table>
-  <thead id="head01">
-<tr id="headRow01">
-  <th *ngFor="let count of xAxisCounts">{{count}}</th>
-</tr>
-  </thead>
-  <tbody>
+  <!-- <thead id="head01"> -->
+    <tr id="headRow01">
+      @for(count of xAxisCounts; track $index){
+      <th>{{ count }}</th>
+      }
+    </tr>
+  <!-- </thead> -->
+  <!-- <tbody> -->
     @for (row of board.rows; track row.index){
-      <tr>
-        @for (cell of row.cells; track cell.column){
-          <td id="{{cell.row}}{{cell.column}}"></td>
-        }
-        <td class="noborder">{{yAxisCounts[row.index]}}</td>
-      </tr>
+    <tr>
+      @for (cell of row.cells; track cell.column){
+      <td id="{{ cell.column }}{{ cell.row }}"></td>
+      }
+      <td class="noborder">{{ yAxisCounts[row.index] }}</td>
+    </tr>
     }
-  </tbody>
+  <!-- </tbody> -->
 </table>
-
-
-

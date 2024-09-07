@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [TableModule, CommonModule],
+  imports: [],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
@@ -30,6 +30,7 @@ export class BoardComponent {
     }
     return rowArray;
   }
+
 
   buildRow(rowIndex: number) : Row {
     let row: Row = {
