@@ -26,6 +26,7 @@ export class TraxPuzzleService {
     return undefined;
   }
 
+
   getPuzzleNumbers(): number[] {
     let puzzleNumbers: number[] = [];
     for(const puzzle of this.puzzleDefinitions.puzzles){
@@ -35,5 +36,5 @@ export class TraxPuzzleService {
     return puzzleNumbers;
   }
 
-  constructor() { }
+
 }
