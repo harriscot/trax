@@ -33,15 +33,27 @@ items:
   Row - row class that contains a list of cells. Each cell is in a column.
   Table - a list of rows. -->
 
+
+
 <div class="row">
   <div class="wide">
     <app-board
       [xAxisCounts]="xAxisValues"
       [yAxisCounts]="yAxisValues"
-    ></app-board>
+      [icons]="icons"
+      (dropped)="onIconDropped($event)">
+    </app-board>
   </div>
+
   <div class="narrow">
-    <table>
+    <div class="icon-list">
+      @for(icon of icons; track $index){
+        <div class="icon" [cdkDrag]="icon">
+          <img [src]="icon" />
+        </div>
+      }
+    </div>
+    <!-- <table>
       <tr>
         <td><img src="/img/track_vertical.png" width="60" height="60" /></td>
         <td>
@@ -67,6 +79,6 @@ items:
       <tr>
         <td><i class="pi pi-times" style="font-size: 4 rem"></i></td>
       </tr>
-    </table>
+    </table> -->
   </div>
 </div>

@@ -9,22 +9,40 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { Track, TrackOrientation, TrackShape } from './elements/track';
 import { CommonService } from '../common.service';
+import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-train-tracks',
   standalone: true,
-  imports: [ButtonModule, PanelModule, TableModule, BoardComponent, DropdownModule, FormsModule],
+  imports: [ButtonModule, PanelModule, TableModule, BoardComponent, DropdownModule, FormsModule, DragDropModule],
   templateUrl: './train-tracks.component.html',
   styleUrl: './train-tracks.component.scss'
 })
 
 export class TrainTracksComponent {
+  icons: String[] = [
+    '/img/track_vertical.png',
+    '/img/track_horizontal.png',
+    '/img/track_top_left.png',
+    '/img/track_top_right.png',
+    '/img/track_bottom_right.png',
+    '/img/track_bottom_left.png',
+  ]
+
+  onIconDropped(event: { icon: string; colIndex: number; rowIndex: number}){
+    console.log('icon dropped', event.icon, ' at column: ', event.colIndex, ' and row ', event.rowIndex);
+  }
+
   constructor(private commonService: CommonService) { }
 
   onSelect(selectedNumber: string) {
     this.clearBoard();
     this.getPuzzleDefinition(selectedNumber);
     this.insertStartingTracks();
+  }
+
+  drop(event: CdkDragDrop<any>, columnIndex: number, rowIndex: number){
+
   }
 
   clearBoard() {

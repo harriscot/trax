@@ -62,6 +62,10 @@ drag and drop / click and select onto board cell.
 Button to display solution
 Display solution on board
 
+NB 
+Drag and drop
+Following instructions from https://chatgpt.com/c/66e0b6b7-d068-8008-8632-ed0d4c845964
+
 # Trax
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
