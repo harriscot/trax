@@ -1,9 +1,9 @@
-<button
+<!-- <button
   pButton
   type="button"
   class="p-button-raised p-button-rounded"
   label="do stuff"
-></button>
+></button> -->
 
 <div>
   <label for="puzzles" id="puzzleSelector">Select a puzzle</label>
@@ -47,8 +47,10 @@ items:
 
   <div class="narrow">
     <div class="icon-list">
+      <!-- <div *ngFor="let icon of icons" class="icon" [cdkDrag]="icon"></div> -->
       @for(icon of icons; track $index){
-        <div class="icon" [cdkDrag]="icon">
+        <div class="icon"
+        cdkDrag="icon">
           <img [src]="icon" />
         </div>
       }

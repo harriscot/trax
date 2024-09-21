@@ -13,3 +13,25 @@
     </tr>
     }
 </table>
+
+<div class="game-board">
+  @for(row of board.rows; track row.index){
+    <div class="board-row">
+      @for(cell of row.cells; track cell.column){
+        <div class="board-cell">
+        @if(cell.icon){
+          <ng-container>
+            <img [src]="cell.icon" />
+          </ng-container>
+        }
+        </div>
+      }
+    </div>
+  }
+</div>
+
+
+<!-- <div class="board-cell"
+[cdkDropList]="[]"
+(cdkDropListDropped)="onDrop($event, cell.column, row.index)"
+> -->

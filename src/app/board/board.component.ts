@@ -1,13 +1,16 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Board } from './board';
 import { Row } from './row';
 import { Cell } from './cell';
 import { CommonService } from '../common.service';
+import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
+import { CommonModule } from '@angular/common';
+// import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, DragDropModule],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
@@ -17,17 +20,34 @@ export class BoardComponent {
 
   @Input() xAxisCounts: number[] | undefined;
   @Input() yAxisCounts!: number[];
+  @Input() icons: string[] = [];
+  @Output() dropped = new EventEmitter<{ icon: string; colIndex: number; rowIndex: number }>
 
-  constructor( private commonService: CommonService){}
+  newBoard: any[][] = [];
+
+  constructor(private commonService: CommonService) {
+    this.initializeBoard();
+  }
+
 
   ngOnInit() {
     this.commonService.clearBoard$.subscribe((data) => {
       this.clearBoard(data);
     });
 
-    this.commonService.insertImage$.subscribe(({columnNumber, rowNumber, imagePath}) =>{
+    this.commonService.insertImage$.subscribe(({ columnNumber, rowNumber, imagePath }) => {
       this.insertImage(columnNumber, rowNumber, imagePath);
     })
+  }
+
+  initializeBoard() {
+    for (let i = 0; i < this.BOARD_SIZE; i++) {
+      this.newBoard[i] = [];
+      for (let j = 0; j < this.BOARD_SIZE; j++) {
+        this.newBoard[i][j] = { icon: null };
+      }
+
+    }
   }
 
   insertImage(columnNumber: number, rowNumber: number, imagePath: string) {
@@ -53,7 +73,7 @@ export class BoardComponent {
       row.cells.forEach((cell) => {
         var cellId = '' + cell.column + cell.row;
         var tableCell = document.getElementById(cellId);
-        while(tableCell?.firstChild){
+        while (tableCell?.firstChild) {
           console.log("removing child elements from cell " + cellId);
           tableCell.removeChild(tableCell.firstChild);
         }
@@ -66,14 +86,14 @@ export class BoardComponent {
   buildBoard(): Row[] {
     let rowArray: Row[] = [];
 
-    for(var i = 0; i < this.BOARD_SIZE; i++ ) {
+    for (var i = 0; i < this.BOARD_SIZE; i++) {
       rowArray.push(this.buildRow(i));
     }
     return rowArray;
   }
 
 
-  buildRow(rowIndex: number) : Row {
+  buildRow(rowIndex: number): Row {
     let row: Row = {
       index: rowIndex,
       cells: this.buildCells(rowIndex)
@@ -84,7 +104,7 @@ export class BoardComponent {
   buildCells(rowIndex: number): Cell[] {
     let cellArray: Cell[] = [];
 
-    for(var i = 0; i < this.BOARD_SIZE; i++ ) {
+    for (var i = 0; i < this.BOARD_SIZE; i++) {
       let cell: Cell = {
         row: rowIndex,
         column: i,
@@ -93,6 +113,14 @@ export class BoardComponent {
       cellArray.push(cell);
     }
     return cellArray;
+  }
+
+  onDrop(event: CdkDragDrop<any>, colIndex: number, rowIndex: number) {
+    const droppedIcon = event.item.data;
+
+    this.newBoard[colIndex][rowIndex].icon = droppedIcon;
+
+    this.dropped.emit({ icon: droppedIcon, colIndex, rowIndex });
   }
 
 }

@@ -66,6 +66,12 @@ NB
 Drag and drop
 Following instructions from https://chatgpt.com/c/66e0b6b7-d068-8008-8632-ed0d4c845964
 
+Youtube drag and drop tutorial:
+
+https://www.youtube.com/watch?v=iWsQ6R-o-dE
+
+
+
 # Trax
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.

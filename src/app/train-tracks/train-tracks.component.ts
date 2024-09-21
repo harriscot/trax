@@ -1,26 +1,27 @@
 import { Component, inject } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
-import { PanelModule } from 'primeng/panel';
-import { TableModule } from 'primeng/table';
+// import { ButtonModule } from 'primeng/button';
+// import { PanelModule } from 'primeng/panel';
+// import { TableModule } from 'primeng/table';
 import { BoardComponent } from "../board/board.component";
 import { PuzzleDefinition } from './domain/puzzle-definition';
 import { TraxPuzzleService } from './trax-puzzle.service';
-import { DropdownModule } from 'primeng/dropdown';
+// import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { Track, TrackOrientation, TrackShape } from './elements/track';
 import { CommonService } from '../common.service';
-import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
+import { CdkDrag, CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-train-tracks',
   standalone: true,
-  imports: [ButtonModule, PanelModule, TableModule, BoardComponent, DropdownModule, FormsModule, DragDropModule],
+  imports: [ BoardComponent, FormsModule, DragDropModule, CommonModule, CdkDrag],
   templateUrl: './train-tracks.component.html',
   styleUrl: './train-tracks.component.scss'
 })
 
 export class TrainTracksComponent {
-  icons: String[] = [
+  icons: string[] = [
     '/img/track_vertical.png',
     '/img/track_horizontal.png',
     '/img/track_top_left.png',
@@ -28,6 +29,7 @@ export class TrainTracksComponent {
     '/img/track_bottom_right.png',
     '/img/track_bottom_left.png',
   ]
+
 
   onIconDropped(event: { icon: string; colIndex: number; rowIndex: number}){
     console.log('icon dropped', event.icon, ' at column: ', event.colIndex, ' and row ', event.rowIndex);

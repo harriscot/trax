@@ -1,0 +1,44 @@
+<p>drag-drop-two works!</p>
+
+<div
+  style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+  "
+>
+  <div cdkDropListGroup>
+    <div class="example-container">
+      <h2>hi there!</h2>
+      <div
+        class="task-list"
+        cdkDropList
+        [cdkDropListData]="tasks"
+        (cdkDropListDropped)="dropUnique($event)"
+      >
+        @for(task of tasks; track $index){
+        <div cdkDrag>
+          {{ task.name }}
+        </div>
+        }
+      </div>
+    </div>
+
+    <div class="boxes">
+      <h2>Well hello!</h2>
+      <div id="box-list"
+        cdkDropList
+        [cdkDropListData]="boxes"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        @for(box of boxes; track $index){
+        <div class="box-cell" cdkDrag>{{ box.name }}</div>
+
+        }
+      </div>
+    </div>
+  </div>
+</div>
